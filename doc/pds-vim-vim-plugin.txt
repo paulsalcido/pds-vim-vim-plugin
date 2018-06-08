@@ -20,26 +20,32 @@ Contents                                                *pds-vim-vim-contents*
 
 2.1 Mappings                                            *pds-vim-vim-mappings*
 
-<localleader>ds
+<localleader>ds (text)
 
 This mapping calls the function |DocumentationAddDotsSpaces|, a method for vim
 files that properly right-aligns tags against textwidth.  It makes a guess for
 what type it is dealing with based on the last character of the line (for
 '|', it will do dots.  For '*', it will do spaces.
 
-<localleader>dl
+<localleader>dl (text)
 
 Adds in a line of '=' up to textwidth
 
+<localleader>ed (vim)
+
+This tries to find and open vim documentation associated with the furrent file
+by using the git root and assuming it's a text file in the doc folder.
+
 2.2 Functions                                          *pds-vim-vim-functions*
 
-DocumentationAddDotsSpaces()
+DocumentationAddDotsSpaces() (text)
 
 Function called to add in dots or spaces for vim documentation.
 
-AddContentHeaderLine()
+AddContentHeaderLine() (text)
 
 Function called to add a content header line of '='
+
 ==============================================================================
 3. License                                               *pds-vim-vim-license*
 
