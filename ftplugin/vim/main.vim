@@ -11,6 +11,8 @@ iabbrev <buffer> func function
 iabbrev <buffer> endf endfunction
 iabbrev <buffer> eno execute "normal!"
 iabbrev <buffer> elsif elseif
+iabbrev <buffer> nnmap nnoremap
+iabbrev <buffer> lol <localleader>
 setlocal foldmethod=marker
 setlocal foldlevelstart=1
 setlocal smartindent
@@ -21,13 +23,11 @@ setlocal hlsearch incsearch
 setlocal nowrap
 
 nnoremap <buffer> <localleader>ed :call <SID>open_vim_doc()<cr>
-
-function! s:git_root()
-    return substitute(system('git rev-parse --show-toplevel'), '\n\+$', '', '')
-endfunction
+nnoremap <buffer> <localleader>ac :execute 'normal! Icall '<cr>
+nnoremap <buffer> <localleader>al :execute 'normal! Ilet '<cr>
 
 function! s:open_vim_doc()
-    let vimdocdir = join([ <SID>git_root(), 'doc' ], '/')
+    let vimdocdir = join([ MyGitRoot(), 'doc' ], '/')
     let files = split(globpath(vimdocdir, '*.txt'), '\n')
     if len(files) ># 0
         execute "normal! :vsplit " . files[0] . "\r\r"
