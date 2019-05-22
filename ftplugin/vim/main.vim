@@ -25,6 +25,7 @@ setlocal nowrap
 nnoremap <buffer> <localleader>ed :call <SID>open_vim_doc()<cr>
 nnoremap <buffer> <localleader>ac :execute 'normal! Icall '<cr>
 nnoremap <buffer> <localleader>al :execute 'normal! Ilet '<cr>
+nnoremap <buffer> <localleader>nf :call pvtemplate#main#readtemplate('function.vim')<cr>
 
 function! s:open_vim_doc()
     let vimdocdir = join([ MyGitRoot(), 'doc' ], '/')
